@@ -29,5 +29,3 @@ app.secret_key = os.urandom(27)
 
 app.register_blueprint(mainview)
 app.register_blueprint(chatview)
-
-

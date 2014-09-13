@@ -17,8 +17,11 @@ def index():
 @mainview.route("/signup", methods=["POST"])
 def signup():
 	if request.method == "POST":
-		mainmodel.add_user(request.form)
-		return redirect("/")
+		if mainmodel.add_user(request.form):
+			#session["username"] = request.form["nickname"]
+			return redirect("/")
+		else:
+			return "This nickname or email is already exists"
 
 @mainview.route("/login", methods=["POST"])
 def login():

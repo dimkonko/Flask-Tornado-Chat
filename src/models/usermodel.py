@@ -19,15 +19,19 @@ class UserModel(object):
 		self.api.add(sql)
 		return True
 
-	def get(self, nickname=None, email=None):
-		if nickname:
-			field = self.fields["nickname"]
-			data = nickname
+	def is_exists(self, nickname, email):
+		sql = "SELECT nickname, email FROM users WHERE "+\
+			  "nickname = '{0}' OR email = '{1}'".format(
+					nickname, email)
+		data = self.api.get(sql)
+		
+		if not data:
+			return False
 		else:
-			field = self.fields["email"]
-			data = email
+			return True
 
-		sql = "SELECT nickname, password FROM users WHERE {0} = '{1}'".format(
-			field, data)
+	def get(self, email):
+		sql = "SELECT * FROM users WHERE email = '{0}'".format(
+			email)
 		user = self.api.get(sql)
 		return user

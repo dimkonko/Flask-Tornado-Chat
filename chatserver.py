@@ -25,7 +25,7 @@ class NowHandler(WebSocketHandler):
             })
         else:
     	   NowHandler.broadcast({"message": message})
-        print NowHandler.people
+        #print NowHandler.people
     
     def on_close(self):
         counter = 0

@@ -17,9 +17,9 @@ class MySqlApi(object):
 	def get(self, sql_string):
 		"""This function gets data from db
 		"""
-		db = self.conn()
-		cursor = db.cursor()
+		conn = self.conn()
+		cursor = conn.cursor()
 		cursor.execute(sql_string)
 		data = cursor.fetchall()
-		db.close()
+		conn.close()
 		return data
