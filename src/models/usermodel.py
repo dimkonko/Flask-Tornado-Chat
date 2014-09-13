@@ -16,7 +16,7 @@ class UserModel(object):
 		            email.encode("utf-8"),
 		            password
 		            )
-		api.add(sql)
+		self.api.add(sql)
 		return True
 
 	def get(self, nickname=None, email=None):

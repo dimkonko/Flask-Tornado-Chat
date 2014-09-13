@@ -1,5 +1,3 @@
-import MySQLdb as mdb
-
 from usermodel import UserModel
 
 class MainModel(object):
@@ -7,9 +5,12 @@ class MainModel(object):
 		self.user = UserModel()
 
 	def add_user(self, user_form):
-		self.user.add(user_form["nickname"],
-			user_form["email"],
-			user_form["password"])		
+		print user_form["nickname"]
+		print user_form["email"]
+		print user_form["passwd"]
+		a = self.user.add(nickname=user_form["nickname"],
+			email=user_form["email"],
+			password=user_form["passwd"])
 
 	def get_user(self, login_form):
 		data = self.user.get(email=login_form["login"])
