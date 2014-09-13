@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Flask Chat</title>
+
+		<link rel="stylesheet" type="text/css" href="static/css/chat.css">
+
+		<script type="text/javascript" src="static/js/chat.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="left_panel">
+				<ul id="settings_but">
+					<a href="/"><li id="nickname">{{ nickname }}</li></a>
+					<a href="/logout"><li>Log Out</li></a>
+				</ul>
+				<ul id="users"></ul>
+			</div>
+			<!-- End of left panel -->
+
+			<!-- Start of right panel -->
+			<div id="right_panel">
+				<div id="chat_div">
+					<textarea id="chat_area" width="100%" height="80%" readonly="True"></textarea>
+				</div>
+				<!-- End of chat div -->
+				<div id="message_div">
+					<input id="message_text" type="text" />
+					<button id="send_message">Send</button>
+				</div>
+				<!-- End of messasge div -->
+			</div>
+			<!-- End of right panel -->
+		</div>
+		
+		<script type="text/javascript" src="static/js/chat.js"></script>
+	</body>
+</html>

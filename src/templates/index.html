@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="static/css/modal.css">
+		<link rel="stylesheet" type="text/css" href="static/css/main_page.css">
+
+		<script type="text/javascript" src="static/js/libs/jquery.js"></script>
+		<script type="text/javascript" src="static/js/libs/modal.js"></script>
+
+		<script type="text/javascript" src="static/js/main_page.js"></script>
+	</head>
+	<body>
+		<div id="block">
+			<div id="wrapper">			
+				<!-- Start of text_anim -->
+				<div id="text_anim">
+					<div id="firstLine" class="line anim_obj">Welcome to the</div>
+					<div id="secondLine" class="line anim_obj">Flask chat...</div>
+				</div>
+				<!-- End of text_anim -->
+
+				<!-- Start of menubar -->
+				<div id="menubar" class="anim_obj">
+					<ul>
+						{% if not isLogedIn %}
+						<li id="login_but">Log In</li>
+						<li>|</li>
+						<li id="signup_but">Sign Up</li>
+						{% else %}
+						<li><a href="/chat">Chat</a></li>
+						<li>|</li>
+						<li><a href="/logout">Log Out</a></li>
+						{% endif %}
+						<li>|</li>
+						<li>About</li>
+						<li>|</li>
+						<li>Contact Us</li>
+					</ul>
+				</div>
+				<!-- End of menubar -->
+			</div>
+			<!-- End of wrapper -->
+		</div>
+
+		<div id="login_modal" class="modal_form">
+			<form method="POST" action="/login">
+				Login:
+				<br><input type="text" name="login" class="field" value="dimkonko@gmail.com" />
+				<br>Password:
+				<br><input type="password" name="passwd" class="field" value="rak123456" />
+				<br><button id="login_but" class="modal_button" type="submit">Add</button>
+			</form>
+		</div>
+		<div id="signup_modal" class="modal_form">
+			<form method="POST" action="/signup">
+				Nickname:
+				<br><input type="text" name="nickname" class="field" value="dimkonko" />
+				<br>Email:
+				<br><input type="text" name="email" class="field" value="dimkonko@gmail.com" />
+				<br>Password:
+				<br><input type="text" class="field" value="rak123456" />
+				<br>Repeat Password:
+				<br><input type="text" name="passwd" class="field" value="rak123456" />
+				<br><button id="signup_but" type="submit" class="modal_button">Add</button>
+			</form>
+		</div>
+	</body>
+</html>
