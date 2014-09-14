@@ -17,5 +17,8 @@ application = tornado.web.Application([
 #PeriodicCallback(NowHandler.echo_now,1000).start()
 
 port = int(os.environ.get("PORT", 5000))
+
+#redis = redis.StrictRedis(host="0.0.0.0", port=5000, db=0)
+
 application.listen(port)
 IOLoop.instance().start()

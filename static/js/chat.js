@@ -10,8 +10,15 @@ window.onload = function() {
 
         var ws =new WebSocket("ws://"+location.host+"/now");
 
+        var room = "main"
+
         ws.onopen = function(e) {
-            ws.send("/nickname:" + nickname);
+            var s = JSON.stringify({
+                "new_user": nickname,
+                "room": room
+            });
+            ws.send(s)
+            console.log(s)
         }
         ws.onmessage=function(e) {
             data = JSON.parse(e.data);
@@ -50,7 +57,12 @@ window.onload = function() {
         function sendMessage() {
             var message = message_text.value;
             if(message) {
-                ws.send(nickname + ": " + message);
+                message = nickname + ": " + message;
+                var s = JSON.stringify({
+                    "message": message,
+                    "room": room
+                });
+                ws.send(s);
                 message_text.value = "";
             }
         }
